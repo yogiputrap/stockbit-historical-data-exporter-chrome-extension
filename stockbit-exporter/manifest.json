@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Stockbit Historical Data Exporter",
+  "version": "2.1.0",
+  "description": "Export historical data dari Stockbit ke Excel - support bulk multi-stock (up to 30 emiten)",
+  "permissions": ["activeTab", "storage", "cookies"],
+  "host_permissions": [
+    "https://*.stockbit.com/*",
+    "https://stockbit.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://stockbit.com/*", "https://*.stockbit.com/*"],
+      "js": ["interceptor.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://stockbit.com/*", "https://*.stockbit.com/*"],
+      "js": ["xlsx.full.min.js", "content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

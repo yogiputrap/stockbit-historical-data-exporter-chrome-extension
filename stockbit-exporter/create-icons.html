@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Generate Icons</title></head>
+<body>
+<canvas id="c48" width="48" height="48"></canvas>
+<canvas id="c128" width="128" height="128"></canvas>
+<script>
+function drawIcon(canvas, size) {
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#00ab6b';
+  const r = size * 0.15;
+  ctx.beginPath();
+  ctx.roundRect(0, 0, size, size, r);
+  ctx.fill();
+  ctx.fillStyle = 'white';
+  ctx.font = `bold ${size * 0.4}px Arial`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('SB', size/2, size/2);
+}
+drawIcon(document.getElementById('c48'), 48);
+drawIcon(document.getElementById('c128'), 128);
+
+// Right-click canvases to save as PNG
+document.querySelectorAll('canvas').forEach(c => {
+  const link = document.createElement('a');
+  link.download = `icon${c.width}.png`;
+  link.href = c.toDataURL();
+  link.textContent = `Download icon${c.width}.png`;
+  document.body.appendChild(link);
+  document.body.appendChild(document.createElement('br'));
+});
+</script>
+<p>Klik link di bawah untuk download icon, lalu simpan di folder extension.</p>
+</body>
+</html>
