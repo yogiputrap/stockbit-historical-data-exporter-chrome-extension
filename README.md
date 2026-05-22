@@ -1,6 +1,7 @@
 # Stockbit Historical Data Exporter
 
 > Chrome extension for bulk-exporting Stockbit historical price data into a single Excel file.
+> <img width="1629" height="1080" alt="Image" src="https://github.com/user-attachments/assets/83b59784-59e9-4593-a7b6-d9fe307c541e" />
 
 Built for Indonesian retail investors who need to pull historical OHLC + foreign flow data across multiple stocks for analysis. Skip the manual click-through — paste your watchlist, set a date range, get one `.xlsx` with multi-sheet output.
 
